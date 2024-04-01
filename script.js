@@ -123,7 +123,7 @@ let inputField=document.getElementById("input-detail")
 function generatePDF() {
         
     const element = document.getElementById("pageprint");
-    document.getElementById("reportbox").appendChild(display1)
+    // document.getElementById("reportbox").appendChild(display1)
     document.getElementById("reportbox").style.display = "block";
     document.getElementById("reportbox").style.marginTop = "0px"; 
     document.getElementById("pageprint").style.border = "1px solid black";
@@ -134,3 +134,5 @@ function generatePDF() {
     var x = document.getElementById("reportbox");  
     generatePDF();
     setTimeout(function() { window.location=window.location;},3000);}
+
+

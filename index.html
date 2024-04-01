@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -229,15 +230,71 @@
     <div id="btn_end">
         <button id="downlod">downlod</button>
         <button id="job">job</button>
-        <div id="pageprint">
-            <div id="reportbox">
 
-            </div>
-        </div>
-        <button type="button" onclick="downloadCode();">Download HTML</button>
     </div>
-    
+    <!-- <div id="pageprint">
+        <div id="reportbox">
+            
+        </div>
+    </div>
+    <button type="button" onclick="downloadCode();">Download HTML</button> -->
+    <section>
+        <div id="gemini"></div>
+    </section>
+
+
+
+
+
     <script src="./script.js"></script>
+
+
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+        
+      </script>
+
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        const API_KEY = "AIzaSyDo5dTgaQME4QIYOQjpx97XoYkvRRflVmw";
+        // Access your API key (see "Set up your API key" above)
+        const genAI = new GoogleGenerativeAI(API_KEY);
+         
+        const md = window.markdownit(); // Create a new instance of markdown-it
+        document.getElementById("job").addEventListener("click", run);
+
+
+
+        async function run() {
+            // For text-only input, use the gemini-pro model
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+            let userInput = document.getElementById("skill").value;
+            let userMsgDisplyDiv = document.createElement("div");
+            userMsgDisplyDiv.className = 'user-msg';
+            userMsgDisplyDiv.textContent = `user:based on this skills${userInput}suggest me job!!`;
+            document.querySelector("#gemini").appendChild(userMsgDisplyDiv);
+
+            const prompt = userInput;
+
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            const text = response.text();
+            console.log(text);
+            let botmsgdiv = document.createElement("div");
+            botmsgdiv.className = 'bot-msg';
+            botmsgdiv.innerHTML = `bot: ${md.render(text)} !!!!`;
+            document.getElementById("gemini").appendChild(botmsgdiv);
+            document.getElementById("gemini").style.border = "1px solid black";
+
+        }
+
+        // run();
+    </script>
 </body>
 
 </html>
