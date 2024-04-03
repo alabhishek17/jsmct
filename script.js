@@ -23,6 +23,7 @@ let inputField=document.getElementById("input-detail")
         // console.log(document.getElementById("middle_name").value);
         // displeftAbout.innerTEXT="";
        
+       
         document.getElementById("files").addEventListener("change",(event)=>{
             document.getElementById("dispimg").src=URL.createObjectURL(event.target.files[0]);
         })
@@ -105,6 +106,7 @@ let inputField=document.getElementById("input-detail")
             document.getElementById("disp_right_pro3").textContent+=" ."+document.getElementById("desId").value;
         })
         
+    
        
     // }
 
@@ -136,3 +138,26 @@ function generatePDF() {
     setTimeout(function() { window.location=window.location;},3000);}
 
 
+// print CV
+// function printCV(){
+//     yours.print();
+// }
+// document.getElementById("print-btn btn btn-primary").addEventListener("click",printCv);
+// // const cvContent = document.getElementById("display-content").addEventListener("click",printCv())
+// function printCv() {
+//     // Here you would implement the logic to print the CV data
+//     // For demonstration, let's just print the content of the elements with their IDs
+    
+//     // console.log(display1);
+//     print();
+// }
+// printCv(display1)
+
+const right_content=document.getElementById("display-content")
+const printbtn=document.getElementById("print_btn").addEventListener("click",function(){
+    let print_content=document.getElementById("display-content").innerHTML;
+    let origin_content=document.body.innerHTML;
+    document.body.innerHTML=print_content;
+    window.print();
+    document.body.innerHTML=origin_content
+});

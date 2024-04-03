@@ -4,297 +4,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML to PDF</title>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            justify-content: space-between;
+        }
+
+        .img_container,
+        .text_container {
+            width: 50%;
+        }
+
+        .img_container {
+            margin-left: 30px;
+            padding: 10px;
+        }
+
+        .img_container img {
+            width: 100%;
+            /* margin-top: 20px; */
+            margin: 20px 0px 0px 0px;
+        }
+
+        .text_container {
+            margin-right: 30px;
+        }
+
+        .text_container h1 {
+            font-size: xx-large;
+
+        }
+
+        .text_container h3 {
+            margin-top: 20px;
+        }
+
+        .text_container button {
+            padding: 10px 30px;
+            font-size: larger;
+            margin-top: 20px;
+            color: azure;
+            background-color: black;
+        }
+
+        /* 
+        .middle_container {
+            display: flex;
+            justify-content: space-between;
+            border: 2px solid;
+            justify-content: center;
+            align-items: center;
+           
+        }
+
+        .middle_container img {
+            
+            height: 400px;
+            border: 2px solid;
+            margin-left: 50px;
+            box-shadow: 10px 5px 5px;
+
+        }
+
+        .templet_container {
+            width: 100%;
+            margin-top: 100px;
+            text-align: center;
+        }
+        .templet_container h1{
+            margin-bottom: 50px;
+        } */
+        .img_templet {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .card1 {
+            width: 30%;
+            /* border: 2px solid; */
+            padding: 20px;
+            background-color: blanchedalmond;
+            margin: 10px;
+        }
+
+        .card1 img {
+            width: 100%;
+            height: 500px;
+        }
+
+        .templet_container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .main_card {
+            display: flex;
+            gap: 1.5rem;
+            animation: slide 20s linear infinite alternate;
+            position: relative;
+            overflow-x: scroll;
+            overflow: hidden;
+            
+            text-align: center;
+            /* width: 80px; */
+            border: 2px solid;
+        }
+
+        .company_img img {
+            height: 40px;
+            width: 40px;
+        }
+        .company_container{
+            text-align: center;
+            /* margin: 20px; */
+            padding: 40px;
+            border: 2px solid;
+            width: 80%;
+            margin-left: 150px;
+        }
+        .card_company{
+            margin-top: 20px;
+            border: 2px solid;
+            padding: 0px 40px ;
+        }
+        .company_container h1{
+            margin-bottom: 10px;
+        }
+.feature_main{
+    display: flex;
+    border: 2px solid;
+    /* margin: 30px; */
+    padding: 70px;
+    margin-top: 50px;
+    align-items: center;
+    gap: 40px;
+}
+.feature_text{
+    width: 50%;
+}
+.feature_text h1{
+    font-weight: bolder;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+.feature_text p{
+    font-weight: bolder;
+    color: rgb(118, 117, 116);
+}
+.feature_video{
+    width: 50%;
+    /* box-shadow: 10px 5px 5px blue; */
+}
+.feature_video video{
+    width: 700px;
+    height: 500px;
+    /* box-shadow: 10px 5px 5px rgb(0, 255, 85); */
+    /* border: 2px solid; */
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjE2IiBoZWlnaHQ9IjQyMSIgdmlld0JveD0iMCAwIDYxNiA0MjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IG9wYWNpdHk9IjAuMyIgeD0iMTYiIHk9IjE2Ljk1MjEiIHdpZHRoPSI2MDAiIGhlaWdodD0iNDA0IiByeD0iOCIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzEwMV8yMzkyKSIvPgo8cmVjdCBvcGFjaXR5PSIwLjgiIHk9IjAuOTUyMTQ4IiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwNCIgcng9IjgiIGZpbGw9InVybCgjcGFpbnQxX2xpbmVhcl8xMDFfMjM5MikiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8xMDFfMjM5MiIgeDE9IjE2IiB5MT0iMTYuOTUyMSIgeDI9IjY3My42NDQiIHkyPSIyNzIuNzUzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM1N0NEQTQiIHN0b3Atb3BhY2l0eT0iMC41MiIvPgo8c3RvcCBvZmZzZXQ9IjAuNTc4MTI1IiBzdG9wLWNvbG9yPSIjNjA0RUM4IiBzdG9wLW9wYWNpdHk9IjAuNzQiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjQ5QTcxIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl8xMDFfMjM5MiIgeDE9IjAiIHkxPSIwLjk1MjE0OCIgeDI9IjY1Ny42NDQiIHkyPSIyNTYuNzUzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM1N0NEQTQiIHN0b3Atb3BhY2l0eT0iMC41MiIvPgo8c3RvcCBvZmZzZXQ9IjAuNTc4MTI1IiBzdG9wLWNvbG9yPSIjNjA0RUM4IiBzdG9wLW9wYWNpdHk9IjAuNzQiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjQ5QTcxIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==);
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+        @keyframes slide {
+            0% {
+                right: 0px;
+            }
+
+            100% {
+                right: 100%;
+            }
+        }
+        .nav{
+            display: flex;
+           justify-content: end;
+        }
+    </style>
 </head>
 
 <body>
     <nav>
-        <img src="" alt="logo">
-        <h1 style="display: inline-block;">Your_Resume</h1>
-        <button class="nav-btn">search</button>
-    </nav>
-    <section3>
-        <section1>
-            <div class="about">
-
-                <div class="main">
-                    <form action="" id="input-detail">
-                        <div class="about-container">
-                            <h1>About</h1>
-                            <div class="about-main">
-                                <div class="first">
-                                    <label for="fname">First_Name</label>
-                                    <input type="text" placeholder="eg.john" name="fname" id="first_name">
-                                    <label for="mname">Middle_name</label>
-                                    <input type="text" placeholder="eg.n" name="mname" id="middle_name"><br>
-                                    <label for="lname">Last_name</label>
-                                    <input type="text" placeholder="eg.n" name="lname" id="last_name">
-                                    <!-- <br> -->
-                                </div>
-                                <div class="second">
-                                    <label for="file"></label>
-                                    <input type="file" accept="image/*" name="img" id="files"><br>
-                                    <label for="design">Designation</label>
-                                    <input type="text" placeholder="eg.n" name="design" id="desigId">
-
-                                    <label for="address">Address</label>
-                                    <input type="text" placeholder="eg.n" name="address" id="addressId">
-                                    <!-- <br> -->
-                                </div>
-                                <div class="thrid">
-                                    <label for="email">Email</label>
-                                    <input type="email" placeholder="eg.n" name="email" id="mail">
-                                    <label for="phone">Phone</label>
-                                    <input type="phone" placeholder="eg.n" name="phone" id="phoneId">
-                                    <label for="summery">Summary</label>
-                                    <input type="text" placeholder="eg.n" name="summery" id="summeryId">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="achivment">
-                            <h1>Achievements</h1>
-                            <div class="achiv-main">
-                                <div class="achiv-title">
-                                    <label for="title">TITle</label>
-                                    <input type="text" placeholder="eg:text" name="title" id="achiv">
-                                </div>
-                                <div class="descr">
-                                    <label for="description">Description</label>
-                                    <input type="text" placeholder="eg:text" name="description" id="descrId">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="education">
-                            <h1>Education</h1>
-                            <div class="edu-main">
-                                <div class="edu-school">
-                                    <label for="school">School</label>
-                                    <input type="text" placeholder="eg:text" name="school" id="schoolId">
-                                </div>
-                                <div class="edu-degree">
-                                    <label for="degree">Degree</label>
-                                    <input type="text" placeholder="eg:text" name="degree" id="degreeId">
-                                </div>
-                                <div class="edu-city">
-                                    <label for="city">City</label>
-                                    <input type="text" placeholder="eg:text" name="city" id="cityId">
-                                </div>
-                                <div class="edu-start">
-                                    <label for="start">Start-Date</label>
-                                    <input type="date" placeholder="eg:text" name="start" id="startId">
-                                </div>
-                                <div class="edu-end">
-                                    <label for="end">End-Date</label>
-                                    <input type="date" placeholder="eg:text" name="end" id="endId">
-                                </div>
-                                <div class="edu-description">
-                                    <label for="description">Description</label>
-                                    <input type="text" placeholder="eg:text" name="description" id="descId">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="education">
-                            <h1>Experience</h1>
-                            <div class="exp-main">
-                                <div class="exp-title">
-                                    <label for="title">Title</label>
-                                    <input type="text" placeholder="eg:text" name="title" id="titleId">
-                                </div>
-                                <div class="exp-company">
-                                    <label for="company">Company</label>
-                                    <input type="text" placeholder="eg:text" name="company" id="companyId">
-                                </div>
-                                <div class="exp-location">
-                                    <label for="location">Location</label>
-                                    <input type="text" placeholder="eg:text" name="location" id="locationId">
-                                </div>
-                                <div class="edu-start">
-                                    <label for="start">Start-Date</label>
-                                    <input type="date" placeholder="eg:text" name="start" id="staId">
-                                </div>
-                                <div class="edu-end">
-                                    <label for="end">End-Date</label>
-                                    <input type="date" placeholder="eg:text" name="end" id="enId">
-                                </div>
-                                <div class="edu-description">
-                                    <label for="description">Description</label>
-                                    <input type="text" placeholder="eg:text" name="description" id="desId">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="projects">
-                            <h1>Projects</h1>
-                            <div class="pro-main">
-                                <div class="pro-title">
-                                    <label for="title">Title</label>
-                                    <input type="text" placeholder="eg:text" name="title" id="pro_titleId">
-                                </div>
-                                <div class="pro-link">
-                                    <label for="company">Company</label>
-                                    <input type="text" placeholder="eg:text" name="company" id="pro_compId">
-                                </div>
-                                <div class="pro-description">
-                                    <label for="description">Description</label>
-                                    <input type="text" placeholder="eg:text" name="description" id="pro_desId">
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        <div class="skills">
-                            <h1>Skills</h1>
-                            <div class="skills-main">
-                                <div class="skills-title">
-                                    <label for="skills">skills</label>
-                                    <input type="text" placeholder="eg:text" name="skills" id="skill">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section1>
-
-        <section2>
-            <div id="display-content">
-                <div class="disp-main">
-                    <div class="disp-left">
-                        <div class="disp_img">
-                            <img src="" alt="" id="dispimg" style="width: 100px; height: 100px;border-radius: 5px; ">
-                        </div>
-
-                        <div id="page1">
-                            <h2>About</h2>
-                            <p id="disp_lift_a"></p>
-                            <p id="disp_lift_a1"></p>
-                            <p id="disp_lift_a3"></p>
-                            <p id="disp_lift_a4"></p>
-                            <p id="disp_lift_a5"></p>
-                            <p id="disp_lift_a6"></p>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div id="page2">
-                            <h2>Skills</h2>
-                            <p id="disp_left_s"></p>
-                        </div>
-                    </div>
-                    <div class="disp-right">
-                        <h2>Achievements</h2>
-                        <p id="disp_right_a"></p>
-                        <p id="disp_right_a1"></p>
-                        <br>
-
-                        <h2>Education</h2>
-                        <p id="disp_right_e1"></p>
-                        <p id="disp_right_e2"></p>
-                        <p id="disp_right_e3"></p>
-                        <p id="disp_right_e4"></p>
-                        <p id="disp_right_e5"></p>
-                        <p id="disp_right_e6"></p>
-                        <br>
-                        <h2>Experience</h2>
-                        <p id="disp_right_ex1"></p>
-                        <p id="disp_right_ex2"></p>
-                        <p id="disp_right_ex3"></p>
-                        <p id="disp_right_ex4"></p>
-                        <p id="disp_right_ex5"></p>
-                        <p id="disp_right_ex6"></p>
-                        <br>
-                        <h2>Projects</h2>
-                        <p id="disp_right_pro1"></p>
-                        <p id="disp_right_pro2"></p>
-                        <p id="disp_right_pro3"></p>
-
-                    </div>
-                </div>
-            </div>
-        </section2>
-    </section3>
-    <div id="btn_end">
-        <button id="downlod">downlod</button>
-        <button id="job">job</button>
-
-    </div>
-    <!-- <div id="pageprint">
-        <div id="reportbox">
-            
+        <div class="nav">
+            <button id="myBtn">Sign Up</button>
+            <button id="myBtn1">Sign In</button>
         </div>
+        <!-- <button id="myBtn">Sign Up</button> -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" id="reg_close">&times;</span>
+    <h1>Register Page</h1>
+    <form action="" name="RegForm" onsubmit="return validateForm()" id="reg_form">
+      <label for="Name">Name:- </label>
+      <input type="text" name="Name"  placeholder="Your name" />
+      <br />
+      <label for="EMail">EmailId:- </label>
+      <input type="email" name="EMail" placeholder="a@gmail.com" />
+      <br />
+      <label for="Password">Password:- </label>
+      <input type="password" name="Password"  placeholder="******" />
+      <br />
+      <label for="Confrim">Confirm Password:- </label>
+      <input type="password" name="Confrim" placeholder="******" />
+      <br />
+
+      <input type="submit" value="Register" name="Submit" class="input1"/>
+      <!-- <button id="reg_close"> close</button> -->
+    </form>
+  </div>
+
+</div>
+<!-- <button id="myBtn1">Sign In</button> -->
+<div id="myModal1" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1">
+      <span class="close" id="log_close">&times;</span>
+      <!-- <p>Some text in the Modal..1</p> -->
+      <h1>Login page</h1>
+    <form action="" name="RegForm" onsubmit="return validateForm()" id="log_form">
+      <label for="EMail">Email-Id:- </label>
+      <input type="email" name="EMail" placeholder="a@gmail.com" />
+      <br />
+      <label for="Password">Password:- </label>
+      <input type="password" name="Password" placeholder="******" />
+       <br>
+      <input type="submit" value="Login" />
+      <!-- <button id="log_close"> close</button> -->
+    </form>
     </div>
-    <button type="button" onclick="downloadCode();">Download HTML</button> -->
+  
+  </div>
+
+        
+    </nav>
     <section>
-        <div id="gemini"></div>
+        <header>
+            <div class="main_container">
+                <div class="container">
+                    <div class="img_container">
+                        <img src="https://www.resumebuilder.com/wp-content/themes/resumebuilder/assets/images/2023/home-animation.svg"
+                            alt="">
+                    </div>
+                    <div class="text_container">
+                        <h1>Resume Builder</h1>
+                        <h3>Easily create the perfect resume for any job using our best-in-class resume builder
+                            platform.</h3>
+                        <a href="resume.html"><button>create your resume </button></a>
+                    </div>
+                </div>
+            </div>
+        </header>
     </section>
 
+    <section>
+        <div class="middle_container">
+            <div class="templet_container">
+                <h1>some templets for you</h1>
+                <div class="img_templet">
+                    <div class="card1">
+                        <img src="https://www.resumebuilder.com/wp-content/uploads/2023/12/Homepage-7-New-2.png" alt="">
+                    </div>
+                    <div class="card1">
+                        <img src="https://www.resumebuilder.com/wp-content/uploads/2023/12/Homepage-10.png" alt="">
+                    </div>
+                    <div class="card1">
+                        <img src="https://www.resumebuilder.com/wp-content/uploads/2023/12/Homepage-1-New.png" alt="">
+                    </div>
+                    <div class="card1">
+                        <img src="https://www.resumebuilder.com/wp-content/uploads/2023/12/Homepage-9-New-2.png" alt="">
 
+                    </div>
+                    <div class="card1">
+                        <img src="https://www.resumebuilder.com/wp-content/uploads/2023/12/Homepage-8.png" alt="">
+                    </div>
+                    <div class="card1">
+                        <img src="https://www.resumebuilder.com/wp-content/uploads/2023/12/Homepage-10.png" alt="">
+                    </div>
 
+                </div>
+            </div>
+    </section>
+    <section>
+        <div class="company_container">
+            <h1>Our user get hired top companys</h1>
+            <div class="main_card">
+                <div class="card_company">
+                    <div class="company_img">
+                        <img src="./image/apple.png" alt="">
+                    </div>
+                    <div class="company_text">
+                        <h1>apple</h1>
+                    </div>
+                </div>
+                <div class="card_company">
+                    <div class="company_img">
+                        <img src="./image/google.png" alt="">
+                    </div>
+                    <div class="company_text">
+                        <h1>Google</h1>
+                    </div>
+                </div>
+                <div class="card_company">
+                    <div class="company_img">
+                        <img src="./image/facebook.png" alt="">
+                    </div>
+                    <div class="company_text">
+                        <h1>Facebook</h1>
+                    </div>
+                </div>
+                <div class="card_company">
+                    <div class="company_img">
+                        <img src="./image/microsoft.png" alt="">
+                    </div>
+                    <div class="company_text">
+                        <h1>microsoft</h1>
+                    </div>
+                </div>
+                <div class="card_company">
+                    <div class="company_img">
+                        <img src="./image/social.png" alt="">
+                    </div>
+                    <div class="company_text">
+                        <h1>Amazon</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="feature_container">
+            <div class="feature_main">
+                <div class="feature_text">
+                    <h1>A feature-resume builder</h1>
+                    <p>Easily edit your resume with Enhancv’s drag-and-drop resume builder. Choose from different templates, various backgrounds and sections.</p>
+                </div>
+                <div class="feature_video">
+                    <video autoplay src="https://cdn.enhancv.com/Resume_Builder_Tutorial_68b11fdab1.mp4?updated_at=2023-06-06T07:25:19.216Z"></video>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-    <script src="./script.js"></script>
-
-
-    <script type="importmap">
-        {
-          "imports": {
-            "@google/generative-ai": "https://esm.run/@google/generative-ai"
-          }
-        }
-        
-      </script>
-
-    <script type="module">
-        import { GoogleGenerativeAI } from "@google/generative-ai";
-
-        const API_KEY = "AIzaSyDo5dTgaQME4QIYOQjpx97XoYkvRRflVmw";
-        // Access your API key (see "Set up your API key" above)
-        const genAI = new GoogleGenerativeAI(API_KEY);
-         
-        const md = window.markdownit(); // Create a new instance of markdown-it
-        document.getElementById("job").addEventListener("click", run);
-
-
-
-        async function run() {
-            // For text-only input, use the gemini-pro model
-            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-            let userInput = document.getElementById("skill").value;
-            let userMsgDisplyDiv = document.createElement("div");
-            userMsgDisplyDiv.className = 'user-msg';
-            userMsgDisplyDiv.textContent = `user:based on this skills${userInput}suggest me job!!`;
-            document.querySelector("#gemini").appendChild(userMsgDisplyDiv);
-
-            const prompt = userInput;
-
-            const result = await model.generateContent(prompt);
-            const response = await result.response;
-            const text = response.text();
-            console.log(text);
-            let botmsgdiv = document.createElement("div");
-            botmsgdiv.className = 'bot-msg';
-            botmsgdiv.innerHTML = `bot: ${md.render(text)} !!!!`;
-            document.getElementById("gemini").appendChild(botmsgdiv);
-            document.getElementById("gemini").style.border = "1px solid black";
-
-        }
-
-        // run();
-    </script>
+    <script src="./register.js"></script>
 </body>
 
 </html>
