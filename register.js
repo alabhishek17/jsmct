@@ -106,7 +106,7 @@ window.onclick = function(event) {
 let users1 = JSON.parse(localStorage.getItem('userList'));
 console.log(users1);
 
-function validateForm() {
+function validateForm1() {
 var email = document.forms["RegForm"]["EMail"].value;
 var password = document.forms["RegForm"]["Password"].value;
 
@@ -118,7 +118,7 @@ if (password == "") {
   alert("Please enter the password");
   return false;
 }
-if(users.some(person=>(person.email === email && person.password === password))){
+if(users1.some(person=>(person.email === email && person.password === password))){
     alert('Logged in successfully');
     return true;
 }else{

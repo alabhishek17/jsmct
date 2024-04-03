@@ -13,16 +13,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <nav>
-        <img src="" alt="logo">
-        <h1 style="display: inline-block;">Your_Resume</h1>
-        <a href="new.html"><button class="nav-btn">Back</button></a>
         
+        <h1 style="display: inline-block;">🆈🅾🆄🆁 🆁🅴🆂🆄🅼🅴</h1>
+        <a href="index.html"><button class="nav-btn">Back</button></a>
+
     </nav>
     <section3>
         <section1>
@@ -176,7 +176,7 @@
                 <div class="disp-main">
                     <div class="disp-left">
                         <div class="disp_img">
-                            <img src="#" alt="" id="dispimg" style="width: 100px; height: 100px;border-radius: 5px;">
+                            <img src="." alt="." id="dispimg" style="width: 100px; height: 100px;border-radius: 5px;" >
                         </div>
 
                         <div id="page1">
@@ -198,37 +198,37 @@
                     </div>
                     <div class="disp-right">
                         <div class="ach1">
-                        <h2>Achievements</h2>
-                        <p id="disp_right_a"></p>
-                        <p id="disp_right_a1"></p>
-                    </div>
-                        <br>
-                        <div class="ach1">
-                        <h2>Education</h2>
-                        <p id="disp_right_e1"></p>
-                        <p id="disp_right_e2"></p>
-                        <p id="disp_right_e3"></p>
-                        <p id="disp_right_e4"></p>
-                        <p id="disp_right_e5"></p>
-                        <p id="disp_right_e6"></p>
+                            <h2>Achievements</h2>
+                            <p id="disp_right_a"></p>
+                            <p id="disp_right_a1"></p>
                         </div>
                         <br>
                         <div class="ach1">
-                        <h2>Experience</h2>
-                        <p id="disp_right_ex1"></p>
-                        <p id="disp_right_ex2"></p>
-                        <p id="disp_right_ex3"></p>
-                        <p id="disp_right_ex4"></p>
-                        <p id="disp_right_ex5"></p>
-                        <p id="disp_right_ex6"></p>
-                    </div>
+                            <h2>Education</h2>
+                            <p id="disp_right_e1"></p>
+                            <p id="disp_right_e2"></p>
+                            <p id="disp_right_e3"></p>
+                            <p id="disp_right_e4"></p>
+                            <p id="disp_right_e5"></p>
+                            <p id="disp_right_e6"></p>
+                        </div>
                         <br>
                         <div class="ach1">
-                        <h2>Projects</h2>
-                        <p id="disp_right_pro1"></p>
-                        <p id="disp_right_pro2"></p>
-                        <p id="disp_right_pro3"></p>
-                    </div>
+                            <h2>Experience</h2>
+                            <p id="disp_right_ex1"></p>
+                            <p id="disp_right_ex2"></p>
+                            <p id="disp_right_ex3"></p>
+                            <p id="disp_right_ex4"></p>
+                            <p id="disp_right_ex5"></p>
+                            <p id="disp_right_ex6"></p>
+                        </div>
+                        <br>
+                        <div class="ach1">
+                            <h2>Projects</h2>
+                            <p id="disp_right_pro1"></p>
+                            <p id="disp_right_pro2"></p>
+                            <p id="disp_right_pro3"></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -237,10 +237,10 @@
     <div id="btn_end">
         <button id="downlod">downlod</button>
         <button id="job">job</button>
-        <button id = "print_btn">Print CV</button>
-        <button id = "projects_btn">suggest_projects</button>
+        <button id="print_btn">Print CV</button>
+        <button id="projects_btn">suggest_projects</button>
     </div>
-    
+
     <!-- <div id="pageprint">
         <div id="reportbox">
             
@@ -248,11 +248,18 @@
     </div>
     <button type="button" onclick="downloadCode();">Download HTML</button> -->
     <section>
-        <div id="gemini"></div>
-    </section>
-     
-    <section>
-        <div id="suggest_pro"></div>
+
+        <div class="job_pro">
+            <div id="gemini">
+                <h3>job's for you</h3>
+            </div>
+
+
+
+            <div id="suggest_pro">
+                <h3>projects for you</h3>
+            </div>
+        </div>
     </section>
 
 
@@ -276,7 +283,7 @@
         const API_KEY = "AIzaSyDo5dTgaQME4QIYOQjpx97XoYkvRRflVmw";
         // Access your API key (see "Set up your API key" above)
         const genAI = new GoogleGenerativeAI(API_KEY);
-         
+
         const md = window.markdownit(); // Create a new instance of markdown-it
         document.getElementById("job").addEventListener("click", run);
         document.getElementById("projects_btn").addEventListener("click", runer);
@@ -293,33 +300,7 @@
             // console.log(userMsgDisplyDiv);
             document.querySelector("#gemini").appendChild(userMsgDisplyDiv);
 
-            const prompt = userInput+"suggest me job on this programing language";
-
-            const result = await model.generateContent(prompt);
-            const response = await result.response;
-            const text = response.text();
-            console.log(text);
-            let botmsgdiv = document.createElement("div");
-            botmsgdiv.className = 'bot-msg';
-            botmsgdiv.innerHTML = `bot: ${md.render(text)} !!!!`;
-            document.getElementById("gemini").appendChild(botmsgdiv);
-            document.getElementById("gemini").style.border = "1px solid black";
-            document.getElementById("gemini").style.width = "50%";
-            document.getElementById("gemini").style.margin = "100px";
-
-        }
-        async function runer() {
-            // For text-only input, use the gemini-pro model
-            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-            let userInput = document.getElementById("skill").value;
-            console.log(userInput);
-            let userMsgDisplyDiv = document.createElement("div");
-            userMsgDisplyDiv.className = 'user-msg';
-            // userMsgDisplyDiv.innerText = userInput+"suggest me job on this programing language"
-            // console.log(userMsgDisplyDiv);
-            document.querySelector("#gemini").appendChild(userMsgDisplyDiv);
-
-            const prompt = userInput+"suggest me projects on this programing language";
+            const prompt = userInput + "suggest me job on this programing language";
 
             const result = await model.generateContent(prompt);
             const response = await result.response;
@@ -331,8 +312,35 @@
             document.getElementById("gemini").appendChild(botmsgdiv);
             // document.getElementById("gemini").style.border = "1px solid black";
             document.getElementById("gemini").style.width = "50%";
-            document.getElementById("gemini").style.margin = "100px";
+            document.getElementById("gemini").style.margin = " 40px 100px";
             document.getElementById("gemini").style.boxShadow = "10px 10px 10px";
+
+        }
+        async function runer() {
+            // For text-only input, use the gemini-pro model
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+            let userInput = document.getElementById("skill").value;
+            console.log(userInput);
+            let userMsgDisplyDiv = document.createElement("div");
+            userMsgDisplyDiv.className = 'user-msg';
+            // userMsgDisplyDiv.innerText = userInput+"suggest me job on this programing language"
+            // console.log(userMsgDisplyDiv);
+            document.querySelector("#suggest_pro").appendChild(userMsgDisplyDiv);
+
+            const prompt = userInput + "suggest me projects on this programing language";
+
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            const text = response.text();
+            console.log(text);
+            let botmsgdiv = document.createElement("div");
+            botmsgdiv.className = 'bot-msg';
+            botmsgdiv.innerHTML = `bot: ${md.render(text)} !!!!`;
+            document.getElementById("suggest_pro").appendChild(botmsgdiv);
+            // document.getElementById("gemini").style.border = "1px solid black";
+            document.getElementById("suggest_pro").style.width = "50%";
+            document.getElementById("suggest_pro").style.margin = " 40px 100px";
+            document.getElementById("suggest_pro").style.boxShadow = "10px 10px 10px";
         }
         // run();
     </script>

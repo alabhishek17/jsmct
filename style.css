@@ -147,7 +147,7 @@ section1,section2{
    
     margin-top: 40px;
 }
- h1{
+#input-detail h1{
     text-align: center;
     background-color: black;
     color: bisque;
@@ -270,18 +270,37 @@ section2{
     box-shadow: 10px 5px;
 }
 
-
+.job_pro{
+    display: flex;
+   
+}
+.job_pro h3{
+    margin-left: 400px;
+}
 
 /* end buttons */
 #job ,#downlod ,#print_btn ,#projects_btn ,.nav-btn{
-    background-color: blue;
+    background-color: rgb(14, 14, 14);
     padding: 10px 20px;
     text-align: center;
+    color: #fefefe;
+    
 }
 #btn_end{
     display: flex;
     justify-content: center;
     gap: 2.5rem;
+    margin: 30px;
+}
+#btn_end button:hover{
+    background: #fefefe;
+    color: black;
+    cursor: pointer;
+}
+a :hover{
+    background: #fefefe;
+    color: black;
+    cursor: pointer;
 }
 
 /* @media print{

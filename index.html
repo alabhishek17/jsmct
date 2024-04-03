@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/fe4524f418.js" crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
@@ -31,9 +32,10 @@
         }
 
         .img_container img {
-            width: 100%;
+            width: 90%;
+            height: 600px;
             /* margin-top: 20px; */
-            margin: 20px 0px 0px 0px;
+            margin: 10px 0px 0px 0px;
         }
 
         .text_container {
@@ -55,8 +57,12 @@
             margin-top: 20px;
             color: azure;
             background-color: black;
+            cursor: pointer;
         }
-
+        .text_container button:hover {
+                background-color: #ffffff;
+                color: black;
+        }
         /* 
         .middle_container {
             display: flex;
@@ -89,8 +95,19 @@
             justify-content: space-between;
             flex-wrap: wrap;
             padding: 20px;
+            /* animation: slide 20s linear infinite alternate;
+            position: relative;
+            overflow-x: scroll;
+            overflow: hidden; */
         }
-
+        /* @keyframes slide{
+    0%{
+        left: 0px;
+    }
+    100%{
+        right: 100%;
+    }
+} */
         .card1 {
             width: 30%;
             /* border: 2px solid; */
@@ -107,6 +124,8 @@
         .templet_container h1 {
             text-align: center;
             margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: bolder;
         }
 
         .main_card {
@@ -119,7 +138,7 @@
             
             text-align: center;
             /* width: 80px; */
-            border: 2px solid;
+            /* border: 2px solid; */
         }
 
         .company_img img {
@@ -130,13 +149,17 @@
             text-align: center;
             /* margin: 20px; */
             padding: 40px;
-            border: 2px solid;
+            /* border: 2px solid; */
             width: 80%;
             margin-left: 150px;
         }
+        .company_container h1{
+            font-size: 2.5rem;
+            font-weight: bolder;
+        }
         .card_company{
             margin-top: 20px;
-            border: 2px solid;
+            /* border: 2px solid; */
             padding: 0px 40px ;
         }
         .company_container h1{
@@ -144,7 +167,7 @@
         }
 .feature_main{
     display: flex;
-    border: 2px solid;
+    /* border: 2px solid; */
     /* margin: 30px; */
     padding: 70px;
     margin-top: 50px;
@@ -176,57 +199,123 @@
      background-repeat: no-repeat;
      background-size: cover;
 }
-        @keyframes slide {
-            0% {
-                right: 0px;
-            }
-
-            100% {
-                right: 100%;
-            }
-        }
+#footer{
+    background-color: rgb(215, 218, 218);
+   
+    
+}
+#footer p{
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.footer_container{
+    display: flex;
+    gap: 40px;
+    margin: 20px;
+    padding: 50px;
+    justify-content: center;
+   font-size: 20px;
+}
+.social_icons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+        
+@keyframes slide{
+    0%{
+        right: 0px;
+    }
+    100%{
+        right: 100%;
+    }
+}
         .nav{
             display: flex;
-           justify-content: end;
+           justify-content: space-between;
+           align-items: center;
+           
+        }
+        .right_nav{
+            float: left;
+        }
+        .nav button{
+         padding: 10px 20px;
+         /* margin:  0px 10px; */
+         color: aliceblue;
+         background-color: black;
+         cursor: pointer;
+        }
+        .nav button:hover{
+            background-color: #ffffff;
+            color: black;
+        }
+        #you{
+            display: flex;
+            position: absolute;
+           /* margin: 100px ; */
+            opacity: 0;
+            padding: 10px 30px;
+            font-size: larger;
+           
+            color: azure;
+            background-color: black;
+            cursor: pointer;
+            z-index: 1;
+           /* left: 800px; */
+           margin: 200px 650px;
+           width: 16%;
+        }
+        #you:hover{
+            opacity: 0.9;
         }
     </style>
 </head>
 
 <body>
     <nav>
+        
         <div class="nav">
+            <div id="left_nav" style="font-size: x-large;">
+                <h3>🆈🅾🆄🆁 🆁🅴🆂🆄🅼🅴</h3>
+            </div>
+            <div class="right_nav">
             <button id="myBtn">Sign Up</button>
             <button id="myBtn1">Sign In</button>
+        </div>
         </div>
         <!-- <button id="myBtn">Sign Up</button> -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close" id="reg_close">&times;</span>
-    <h1>Register Page</h1>
-    <form action="" name="RegForm" onsubmit="return validateForm()" id="reg_form">
-      <label for="Name">Name:- </label>
-      <input type="text" name="Name"  placeholder="Your name" />
-      <br />
-      <label for="EMail">EmailId:- </label>
-      <input type="email" name="EMail" placeholder="a@gmail.com" />
-      <br />
-      <label for="Password">Password:- </label>
-      <input type="password" name="Password"  placeholder="******" />
-      <br />
-      <label for="Confrim">Confirm Password:- </label>
-      <input type="password" name="Confrim" placeholder="******" />
-      <br />
-
-      <input type="submit" value="Register" name="Submit" class="input1"/>
-      <!-- <button id="reg_close"> close</button> -->
-    </form>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" id="reg_close">&times;</span>
+      <h1>Register Page</h1>
+      <form action="" name="RegForm" onsubmit="return validateForm()" id="reg_form" windows>
+        <label for="Name">Name:- </label>
+        <input type="text" name="Name"  placeholder="Your name" />
+        <br />
+        <label for="EMail">EmailId:- </label>
+        <input type="email" name="EMail" placeholder="a@gmail.com" />
+        <br />
+        <label for="Password">Password:- </label>
+        <input type="password" name="Password"  placeholder="******" />
+        <br />
+        <label for="Confrim">Confirm Password:- </label>
+        <input type="password" name="Confrim" placeholder="******" />
+        <br />
+  
+        <input type="submit" value="Register" name="Submit" class="input1"/>
+        <!-- <button id="reg_close"> close</button> -->
+      </form>
+    </div>
+  
   </div>
-
-</div>
 <!-- <button id="myBtn1">Sign In</button> -->
 <div id="myModal1" class="modal1">
 
@@ -235,7 +324,7 @@
       <span class="close" id="log_close">&times;</span>
       <!-- <p>Some text in the Modal..1</p> -->
       <h1>Login page</h1>
-    <form action="" name="RegForm" onsubmit="return validateForm()" id="log_form">
+    <form action="" name="RegForm" onsubmit="return validateForm1()" id="log_form">
       <label for="EMail">Email-Id:- </label>
       <input type="email" name="EMail" placeholder="a@gmail.com" />
       <br />
@@ -273,7 +362,8 @@
     <section>
         <div class="middle_container">
             <div class="templet_container">
-                <h1>some templets for you</h1>
+                <h1>Some templets for you</h1> 
+                <a href="resume.html"><button id="you">create your resume</button></a>
                 <div class="img_templet">
                     <div class="card1">
                         <img src="https://www.resumebuilder.com/wp-content/uploads/2023/12/Homepage-7-New-2.png" alt="">
@@ -353,13 +443,44 @@
                     <p>Easily edit your resume with Enhancv’s drag-and-drop resume builder. Choose from different templates, various backgrounds and sections.</p>
                 </div>
                 <div class="feature_video">
-                    <video autoplay src="https://cdn.enhancv.com/Resume_Builder_Tutorial_68b11fdab1.mp4?updated_at=2023-06-06T07:25:19.216Z"></video>
+                    <video  autoplay src="Resume_Builder_.mp4"></video>
                 </div>
             </div>
         </div>
     </section>
+    <section>
+        <div id="footer">
+            <div class="footer_container">
+                <div class="info">
+                    <h3>Resume</h3>
+                    <h4>Resume Builder</h4>
+                    <h4>Resume Examples</h4>
+                    <h4>Resume Templates</h4>
+                    <h4>Resume Formats</h4>
+                    <h4>How to Write a Resume</h4>
+
+                </div>
+                <div class="footer_1">
+                    <h3>Get started</h3>
+                    <h4>Create Resume</h4>
+                    <h4>Pricing</h4>
+                    <h4>Terms of Service</h4>
+                    <h4>Privacy Policy</h4>
+                </div>
+                <div class="social_icons">
+                    <span><i class="fa-brands fa-facebook"></i></span>
+                    <span><i class="fa-brands fa-instagram"></i></span>
+                    <span><i class="fa-brands fa-linkedin"></i></span>
+                    <span><i class="fa-brands fa-github"></i></span>
+                </div>
+                
+            </div>
+            <p>&copy; 2024 bulid by Abhishek A L.</p>
+        </div>
+    </section>
 
     <script src="./register.js"></script>
+
 </body>
 
 </html>
