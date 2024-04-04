@@ -59,25 +59,27 @@ This is a resume application  It generates a complete resume format based on the
 ![landing Screenshot](D:\javascript\mct-js\screenshot\landing_page)
 
 ## Screenshots
-![Paymentpage Screenshot](D:\geekster_html\main\payment)
+![Landing page2 Screenshot](D:\javascript2\mct-js\screenshot\landing_page2)
 
 ## Screenshots
-![Techpage Screenshot](D:\geekster_html\main\tech)
+![Landing page2 Screenshot](D:\javascript2\mct-js\screenshot\landing_page3)
 
 ## Screenshots
-![Case study Screenshot](D:\geekster_html\main\casehome)
+![Sign up Screenshot](D:\javascript2\mct-js\screenshot\sign_up)
 
 ## Screenshots
-![Spotlight Screenshot](D:\geekster_html\main\spotlight)
+![Sign in Screenshot](D:\javascript2\mct-js\screenshot\sign_in)
 
 ## Screenshots
-![Newsroom Screenshot](D:\geekster_html\main\news)
+![User_Home Screenshot](D:\javascript2\mct-js\screenshot\user_home)
+
+## Screenshots
+![Home_btn Screenshot](D:\javascript2\mct-js\screenshot\home_btn)
 
 ### Laptop View
-![Laptop View](D:\geekster_html\main\bloghome)
+![Laptop View](https://github.com/alabhishek17/jsmct)
 
-### Mobile View
-![Mobile View](D:\geekster_html\main/mobail)
+
 
 # Conclusion
 
@@ -95,3 +97,29 @@ As I continue my journey in web development, I look forward to applying the skil
 
 ## Gratitude
 We sincerely thank you for exploring our Resume Application. We hope it serves you well in crafting the perfect resume and advancing your career journey.
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+## Screenshots
+![landing Screenshot](D:\javascript\mct-js\screenshot\landing_page)
+
+## Screenshots
+![Landing page2 Screenshot](D:\javascript2\mct-js\screenshot\landing_page2)
+
+## Screenshots
+![Landing page2 Screenshot](D:\javascript2\mct-js\screenshot\landing_page3)
+
+## Screenshots
+![Sign up Screenshot](D:\javascript2\mct-js\screenshot\sign_up)
+
+## Screenshots
+![Sign in Screenshot](D:\javascript2\mct-js\screenshot\sign_in)
+
+## Screenshots
+![User_Home Screenshot](D:\javascript2\mct-js\screenshot\user_home)
+
+## Screenshots
+![Home_btn Screenshot](D:\javascript2\mct-js\screenshot\home_btn)
+
+### Laptop View
+![Laptop View](https://github.com/alabhishek17/jsmct)
