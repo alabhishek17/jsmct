@@ -95,6 +95,7 @@
             justify-content: space-between;
             flex-wrap: wrap;
             padding: 20px;
+            width: 100%;
             /* animation: slide 20s linear infinite alternate;
             position: relative;
             overflow-x: scroll;
@@ -112,7 +113,7 @@
             width: 30%;
             /* border: 2px solid; */
             padding: 20px;
-            background-color: blanchedalmond;
+            background-color:  rgb(215, 218, 218);;
             margin: 10px;
         }
 
@@ -198,6 +199,7 @@
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjE2IiBoZWlnaHQ9IjQyMSIgdmlld0JveD0iMCAwIDYxNiA0MjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IG9wYWNpdHk9IjAuMyIgeD0iMTYiIHk9IjE2Ljk1MjEiIHdpZHRoPSI2MDAiIGhlaWdodD0iNDA0IiByeD0iOCIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzEwMV8yMzkyKSIvPgo8cmVjdCBvcGFjaXR5PSIwLjgiIHk9IjAuOTUyMTQ4IiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwNCIgcng9IjgiIGZpbGw9InVybCgjcGFpbnQxX2xpbmVhcl8xMDFfMjM5MikiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8xMDFfMjM5MiIgeDE9IjE2IiB5MT0iMTYuOTUyMSIgeDI9IjY3My42NDQiIHkyPSIyNzIuNzUzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM1N0NEQTQiIHN0b3Atb3BhY2l0eT0iMC41MiIvPgo8c3RvcCBvZmZzZXQ9IjAuNTc4MTI1IiBzdG9wLWNvbG9yPSIjNjA0RUM4IiBzdG9wLW9wYWNpdHk9IjAuNzQiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjQ5QTcxIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQxX2xpbmVhcl8xMDFfMjM5MiIgeDE9IjAiIHkxPSIwLjk1MjE0OCIgeDI9IjY1Ny42NDQiIHkyPSIyNTYuNzUzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiM1N0NEQTQiIHN0b3Atb3BhY2l0eT0iMC41MiIvPgo8c3RvcCBvZmZzZXQ9IjAuNTc4MTI1IiBzdG9wLWNvbG9yPSIjNjA0RUM4IiBzdG9wLW9wYWNpdHk9IjAuNzQiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjQ5QTcxIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==);
      background-repeat: no-repeat;
      background-size: cover;
+     /* z-index: 1; */
 }
 #footer{
     background-color: rgb(215, 218, 218);
@@ -212,10 +214,10 @@
 }
 .footer_container{
     display: flex;
-    gap: 40px;
+    gap: 400px;
     margin: 20px;
     padding: 50px;
-    justify-content: center;
+    /* justify-content: center; */
    font-size: 20px;
 }
 .social_icons{
@@ -272,6 +274,7 @@
         #you:hover{
             opacity: 0.9;
         }
+       
     </style>
 </head>
 
@@ -324,14 +327,14 @@
       <span class="close" id="log_close">&times;</span>
       <!-- <p>Some text in the Modal..1</p> -->
       <h1>Login page</h1>
-    <form action="" name="RegForm" onsubmit="return validateForm1()" id="log_form">
+    <form action="resume.html" name="RegForm" onsubmit="return validateForm1()" id="log_form">
       <label for="EMail">Email-Id:- </label>
       <input type="email" name="EMail" placeholder="a@gmail.com" />
       <br />
       <label for="Password">Password:- </label>
       <input type="password" name="Password" placeholder="******" />
        <br>
-      <input type="submit" value="Login" />
+      <input type="submit" value="Login" class="input2"/>
       <!-- <button id="log_close"> close</button> -->
     </form>
     </div>
@@ -390,7 +393,8 @@
     </section>
     <section>
         <div class="company_container">
-            <h1>Our user get hired top companys</h1>
+            <h1>Our user get hired in top companys</h1>
+            
             <div class="main_card">
                 <div class="card_company">
                     <div class="company_img">
@@ -437,20 +441,23 @@
     </section>
     <section>
         <div class="feature_container">
+            <a href="resume.html"><button id="you">create your resume</button></a>
             <div class="feature_main">
                 <div class="feature_text">
                     <h1>A feature-resume builder</h1>
-                    <p>Easily edit your resume with Enhancv’s drag-and-drop resume builder. Choose from different templates, various backgrounds and sections.</p>
+                    <p>Easily edit your resume with Your_Resume drag-and-drop resume builder. Choose from different templates, various backgrounds and sections.</p>
                 </div>
                 <div class="feature_video">
-                    <video  autoplay src="Resume_Builder_.mp4"></video>
+                    <video  autoplay src="Resume_Builder_.mp4" ></video>
                 </div>
             </div>
         </div>
     </section>
     <section>
         <div id="footer">
+            <h3>🆈🅾🆄🆁 🆁🅴🆂🆄🅼🅴</h3>
             <div class="footer_container">
+                
                 <div class="info">
                     <h3>Resume</h3>
                     <h4>Resume Builder</h4>

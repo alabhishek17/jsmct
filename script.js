@@ -97,13 +97,13 @@ let inputField=document.getElementById("input-detail")
             document.getElementById("disp_right_ex5").textContent+=" ."+document.getElementById("desId").value;
         })
         document.getElementById("pro_titleId").addEventListener("change",()=>{
-            document.getElementById("disp_right_pro1").textContent+=" ."+document.getElementById("desId").value;
+            document.getElementById("disp_right_pro1").textContent+=" ."+document.getElementById("pro_titleId").value;
         })
         document.getElementById("pro_compId").addEventListener("change",()=>{
-            document.getElementById("disp_right_pro2").textContent+=" ."+document.getElementById("desId").value;
+            document.getElementById("disp_right_pro2").textContent+=" ."+document.getElementById("pro_compId").value;
         })
         document.getElementById("pro_desId").addEventListener("change",()=>{
-            document.getElementById("disp_right_pro3").textContent+=" ."+document.getElementById("desId").value;
+            document.getElementById("disp_right_pro3").textContent+=" ."+document.getElementById("pro_desId").value;
         })
         
     
@@ -161,3 +161,17 @@ const printbtn=document.getElementById("print_btn").addEventListener("click",fun
     window.print();
     document.body.innerHTML=origin_content
 });
+
+
+const downloadBtn=document.getElementById("downlod_btn").addEventListener("click",generatePDF);
+function generatePDF() {
+    const element = document.getElementById("display-content");
+// console.log("hi");
+    html2pdf().from(element).save('download.pdf');    
+    }
+    
+    function downloadCode(){
+    generatePDF();
+    setTimeout(function() { window.location=window.location;},3000);
+}
+// generatePDF();

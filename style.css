@@ -96,7 +96,26 @@ nav{
   border: 2p solid;
   margin: 10px;
   }
-
+  #reg_form  .input1{
+    padding: 10px;
+    background-color: black;
+    color: #fefefe;
+    cursor: pointer;
+  }
+  #log_form .input2{
+    padding: 10px;
+    background-color: black;
+    color: #fefefe;
+    cursor: pointer;
+  }
+  #reg_form  .input1:hover{
+    background-color: #fefefe;
+    color: black;
+  }
+  #log_form  .input2:hover{
+    background-color: #fefefe;
+    color: black;
+  }
 
 section1,section2{
     width: 50%;
@@ -221,16 +240,16 @@ section2 .disp-left{
     width: 40%;
     height: 500px;
     /* height: 100%; */
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(11, 11, 11);
     /* border: 2px solid green; */
 }
 section2 .disp-right{
-    width: 70%;
+    width: 60%;
     /* background-color: aqua; */
 }
 #display-content{
-    /* border: 3px solid yellow; */
-    background-color:white;
+    border: 3px solid yellow;
+    /* background-color:white; */
     padding: 20px;
     /* width: 100%; */
     /* border: 2px solid yellow; */
@@ -238,7 +257,7 @@ section2 .disp-right{
     
 }
 section2, h2 ,p{
-    color: rgb(187, 187, 182);
+    color: white;
 
 }
 section2{
@@ -279,7 +298,7 @@ section2{
 }
 
 /* end buttons */
-#job ,#downlod ,#print_btn ,#projects_btn ,.nav-btn{
+#job ,#downlod_btn ,#print_btn ,#projects_btn ,.nav-btn{
     background-color: rgb(14, 14, 14);
     padding: 10px 20px;
     text-align: center;
