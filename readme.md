@@ -18,7 +18,7 @@ This is a resume application  It generates a complete resume format based on the
 
 - **Abhishek**: As the sole developer, Abhishek conceptualized and implemented this application, leveraging his expertise in web development and user experience design.
   
-## [LinkedIn Profile](https://www.linkedin.com/posts/activity-7161111141471969281-W8Jh?utm_source=share&utm_medium=member_desktop)
+## [LinkedIn Profile](https://www.linkedin.com/posts/activity-7182018426788356096-dgMf?utm_source=share&utm_medium=member_desktop)
 
 
 
